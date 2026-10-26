@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Countdown Maker — Free Shareable Countdown Timer to Any Date | S3eidat Tools</title>
+<meta name="description" content="Make a beautiful countdown to any event (days, hours, minutes, seconds) and share it as a link. Themes, fullscreen, confetti at zero, saved countdowns. No sign-up, no server.">
+<meta property="og:title" content="Countdown Maker — shareable countdowns">
+<meta property="og:description" content="Beautiful countdowns you can share as a link. Runs 100% in your browser.">
+<meta property="og:image" content="screenshot.png">
+<link rel="icon" href="kit/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kit/kit.css">
+<link rel="stylesheet" href="app.css">
+<script src="kit/kit.js"></script>
+</head>
+<body data-tool="countdown-maker">
+<main class="s3-main">
+  <section class="s3-hero" id="hero">
+    <h1>Countdown Maker</h1>
+    <p>Count down to a launch, a wedding, Eid or a holiday. Pick a date, choose a look, and share the link. The settings live in the link itself, so there's no server and no sign-up.</p>
+  </section>
+
+  <section class="cd-view theme-aurora" id="view">
+    <div class="cd-top">
+      <span class="cd-kicker" id="kicker">Counting down to</span>
+      <button class="cd-icon" id="fs" title="Fullscreen" aria-label="Fullscreen">⛶</button>
+    </div>
+    <h2 class="cd-name" id="name" dir="auto">New Year</h2>
+    <div class="cd-when" id="when"></div>
+    <div class="cd-tiles" id="tiles" role="timer" aria-live="off">
+      <div><b id="d">0</b><span>days</span></div>
+      <div><b id="h">00</b><span>hours</span></div>
+      <div><b id="m">00</b><span>minutes</span></div>
+      <div><b id="s">00</b><span>seconds</span></div>
+    </div>
+    <div class="cd-done" id="done" hidden>🎉 It's here!</div>
+    <div class="cd-actions no-print">
+      <button class="btn" id="copyLink"><svg class="i"><use href="#i-copy"/></svg>Copy link</button>
+      <button class="btn" id="saveBtn"><svg class="i"><use href="#i-plus"/></svg>Save</button>
+    </div>
+  </section>
+
+  <div class="grid-2 mt cd-grid">
+    <section class="card">
+      <h2>Make a countdown</h2>
+      <form class="stack" id="form">
+        <label class="field">Event name<input class="input" id="fName" maxlength="80" dir="auto" placeholder="e.g. Our wedding, Product launch, عيد الفطر" autocomplete="off"></label>
+        <div class="grid-2">
+          <label class="field">Date<input class="input" type="date" id="fDate" required></label>
+          <label class="field">Time<input class="input" type="time" id="fTime" value="00:00"></label>
+        </div>
+        <div class="field"><span>Theme</span>
+          <div class="themes" id="themes" role="group" aria-label="Theme"></div>
+        </div>
+        <p class="faint" id="tzNote"></p>
+        <div class="row">
+          <button class="btn primary" type="submit">Create countdown</button>
+          <button class="btn ghost" type="button" id="fromView">Edit the one above</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Saved countdowns</h2>
+      <ul class="saved" id="saved"></ul>
+      <div class="empty" id="noSaved"><b>Nothing saved yet</b>Press Save on a countdown to keep it here (on this device only).</div>
+    </section>
+  </div>
+</main>
+<canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+<script src="app.js"></script>
+</body>
+</html>
